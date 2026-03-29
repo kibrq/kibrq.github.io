@@ -7,16 +7,6 @@ redirect_from:
   - /about.html
 ---
 
-I am an AI researcher and PhD student in the [Mathematical Data Science Lab](https://mds.epfl.ch/) at [EPFL](https://www.epfl.ch/), working with [Emmanuel Abbé](https://people.epfl.ch/emmanuel.abbe?lang=en).
+I am an AI researcher and PhD student in the [MDS Lab](https://mds.epfl.ch/) at [EPFL](https://www.epfl.ch/), working with [Emmanuel Abbé](https://people.epfl.ch/emmanuel.abbe?lang=en).
 
-My research interests are in machine learning, theoretical foundations of AI, and related questions in data science and optimization.
-
-Contact
-======
-kirill [dot] brilliantov [at] epfl [dot] ch
-
-Links
-======
-- [Google Scholar](https://scholar.google.com/citations?user=thgwrhYAAAAJ&hl=en)
-- [GitHub](https://github.com/kibrq)
-- [LinkedIn](https://www.linkedin.com/in/kirill-brilliantov-ab5a7b24a/)
+My main research interests are in applying AI, especially to mathematics, along with broader questions in machine learning and the theoretical foundations of AI. Currently, I am working on agentic AI for science and beyond.

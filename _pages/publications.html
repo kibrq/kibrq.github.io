@@ -11,25 +11,32 @@ author_profile: true
 
 {% include base_path %}
 
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
-    {% endfor %}
-  {% endfor %}
-{% else %}
+<ul>
   {% for post in site.publications reversed %}
-    {% include archive-single.html %}
+    <li>
+      {{ post.citation | replace: "Kirill Brilliantov", "<strong>Kirill Brilliantov</strong>" }}
+      {% assign links = "" %}
+      {% if post.venueurl %}
+        {% capture links %}{{ links }}<a href="{{ post.venueurl }}">{{ post.venue }}</a>{% endcapture %}
+      {% endif %}
+      {% if post.arxivurl %}
+        {% if links != "" %}
+          {% capture links %}{{ links }} | {% endcapture %}
+        {% endif %}
+        {% capture links %}{{ links }}<a href="{{ post.arxivurl }}">arXiv</a>{% endcapture %}
+      {% endif %}
+      {% if post.openreviewurl %}
+        {% if links != "" %}
+          {% capture links %}{{ links }} | {% endcapture %}
+        {% endif %}
+        {% capture links %}{{ links }}<a href="{{ post.openreviewurl }}">OpenReview</a>{% endcapture %}
+      {% endif %}
+      {% if links == "" and post.paperurl %}
+        {% capture links %}<a href="{{ post.paperurl }}">Paper</a>{% endcapture %}
+      {% endif %}
+      {% if links != "" %}
+        ({{ links }})
+      {% endif %}
+    </li>
   {% endfor %}
-{% endif %}
-
-
+</ul>

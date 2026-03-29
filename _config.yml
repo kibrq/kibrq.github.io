@@ -26,11 +26,12 @@ author:
   avatar           : "profile.png"
   name             : "Kirill Brilliantov"
   pronouns         : # example: "she/her"  
-  bio              : "AI researcher and PhD student in the Mathematical Data Science Lab at EPFL, working with Emmanuel Abbe."
+  bio              : "PhD Student, AI Researcher"
   location         : "Lausanne, Switzerland"
   employer         : "EPFL"
-  uri              : "https://mds.epfl.ch/"
+  uri              :
   email            :
+  email_text       : "kirill [dot] brilliantov [at] epfl [dot] ch"
 
   # Academic websites
   academia         : # URL
