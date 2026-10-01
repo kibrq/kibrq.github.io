@@ -24,6 +24,8 @@ repository               : "kibrq/kibrq.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
+  avatar_width     : 692
+  avatar_height    : 692
   name             : "Kirill Brilliantov"
   pronouns         : # example: "she/her"  
   bio              : "PhD Student, AI Researcher"

@@ -51,6 +51,7 @@ function updateNav() {
     if (breaks.length < 1) {
       $btn.addClass('hidden');
       $btn.removeClass('close');
+      $btn.attr('aria-expanded', 'false');
       $hlinks.addClass('hidden');
     }
   }
@@ -60,8 +61,9 @@ function updateNav() {
 
   // update masthead height and the body/sidebar top padding
   var mastheadHeight = $('.masthead').height();
+  document.documentElement.style.setProperty('--masthead-height', mastheadHeight + 'px');
   $('body').css('padding-top', mastheadHeight + 'px');
-  if ($(".author__urls-wrapper button").is(":visible")) {
+  if ($('#main').hasClass('has-sidebar') || $(".author__urls-wrapper button").is(":visible")) {
     $(".sidebar").css("padding-top", "");
   } else {
     $(".sidebar").css("padding-top", mastheadHeight + "px");
@@ -81,6 +83,7 @@ screen.orientation.addEventListener("change", function () {
 $btn.on('click', function () {
   $hlinks.toggleClass('hidden');
   $(this).toggleClass('close');
+  $(this).attr('aria-expanded', !$hlinks.hasClass('hidden'));
 });
 
 updateNav();
