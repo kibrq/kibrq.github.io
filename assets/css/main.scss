@@ -42,6 +42,58 @@
     "vendor/font-awesome/brands"
 ;
 
+.publication-tag {
+  display: inline-block;
+  margin-right: 0.4em;
+  padding: 0.15em 0.5em;
+  border: 1px solid var(--global-dark-border-color);
+  border-radius: 0.35em;
+  background: var(--global-code-background-color);
+  color: var(--global-text-color);
+  font-size: 0.7em;
+  font-weight: 600;
+  line-height: 1.4;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+// Keep the CV sidebar and content in the same grid instead of sizing a fixed
+// sidebar against the viewport independently of the content container.
+#main.cv-page {
+  @include breakpoint($large) {
+    display: grid;
+    grid-template-columns: minmax(0, 250px) minmax(0, 1fr);
+    gap: 2rem;
+    align-items: start;
+
+    // The float layout's clearfix would otherwise create extra grid items.
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    > .sidebar {
+      position: sticky;
+      top: $masthead-height;
+      float: none;
+      width: auto;
+      max-width: none;
+      height: auto;
+      max-height: calc(100vh - #{$masthead-height});
+      margin: 0;
+      padding: 0;
+    }
+
+    > .archive {
+      float: none;
+      width: auto;
+      min-width: 0;
+      margin-right: 0;
+      padding: 0;
+    }
+  }
+}
+
 .cv-entry {
   margin: 0 0 1rem;
 }
@@ -55,11 +107,14 @@
 .cv-entry__heading {
   align-items: baseline;
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   justify-content: space-between;
 }
 
 .cv-entry__title {
+  flex: 1;
+  min-width: 0;
   margin: 0;
 }
 
@@ -77,12 +132,15 @@
 .cv-entry__subheading {
   align-items: baseline;
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   justify-content: space-between;
   margin: 0.15rem 0 0 1.5rem;
 }
 
 .cv-entry__subtext {
+  flex: 1;
+  min-width: 0;
   margin: 0;
 }
 

@@ -3,6 +3,7 @@ layout: archive
 title: ""
 permalink: /cv/
 author_profile: true
+main_class: cv-page
 redirect_from:
   - /resume
 ---
@@ -14,7 +15,7 @@ Education
 <div class="cv-entry">
   <div class="cv-entry__heading">
     <p class="cv-entry__title"><strong>EPFL</strong>, Doctoral Program in Computer and Communication Sciences</p>
-    <p class="cv-entry__date">Sep 2025 to present</p>
+    <p class="cv-entry__date">Sep 2025 to Now</p>
   </div>
   <p class="cv-entry__detail">Advisor: Emmanuel Abbé, MDS Lab</p>
 </div>
@@ -54,8 +55,15 @@ Education
 
 <hr class="cv-section-separator" />
 
-Internships
+Work Experience
 ======
+<div class="cv-entry">
+  <div class="cv-entry__heading">
+    <p class="cv-entry__title">Contractor at <strong>Apple MLR</strong></p>
+    <p class="cv-entry__date">April 2026 to Now</p>
+  </div>
+</div>
+
 <div class="cv-entry">
   <div class="cv-entry__heading">
     <p class="cv-entry__title">Research Internship at <strong>ISTA</strong></p>

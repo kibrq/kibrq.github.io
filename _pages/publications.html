@@ -14,6 +14,20 @@ author_profile: true
 <ul>
   {% for post in site.publications reversed %}
     <li>
+      {% assign venue = post.venue | downcase %}
+      {% assign venue_tag = post.venue %}
+      {% if venue contains "workshop" %}
+        {% if venue contains "icml" %}
+          {% assign venue_tag = "ICML Workshop" %}
+        {% else %}
+          {% assign venue_tag = "Workshop" %}
+        {% endif %}
+      {% elsif venue contains "preprint" %}
+        {% assign venue_tag = "Preprint" %}
+      {% endif %}
+      {% if venue_tag %}
+        <span class="publication-tag" title="{{ post.venue | escape }}">{{ venue_tag | escape }}</span>
+      {% endif %}
       {{ post.citation | replace: "Kirill Brilliantov", "<strong>Kirill Brilliantov</strong>" }}
       {% assign links = "" %}
       {% if post.venueurl %}
@@ -30,6 +44,12 @@ author_profile: true
           {% capture links %}{{ links }} | {% endcapture %}
         {% endif %}
         {% capture links %}{{ links }}<a href="{{ post.openreviewurl }}">OpenReview</a>{% endcapture %}
+      {% endif %}
+      {% if post.appleurl %}
+        {% if links != "" %}
+          {% capture links %}{{ links }} | {% endcapture %}
+        {% endif %}
+        {% capture links %}{{ links }}<a href="{{ post.appleurl }}">Apple Research</a>{% endcapture %}
       {% endif %}
       {% if links == "" and post.paperurl %}
         {% capture links %}<a href="{{ post.paperurl }}">Paper</a>{% endcapture %}

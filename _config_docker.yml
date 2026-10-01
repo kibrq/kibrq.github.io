@@ -1,1 +1,3 @@
 url: ""
+# Build outside the source bind mount to avoid host file ownership conflicts.
+destination: /tmp/jekyll-site

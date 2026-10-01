@@ -15,21 +15,21 @@ RUN groupadd -g 1000 vscode && \
 # Set the working directory
 WORKDIR /usr/src/app
 
+# Keep container gems outside the source mount and ignore host Bundler settings.
+ENV BUNDLE_IGNORE_CONFIG=true \
+    BUNDLE_PATH=/usr/local/bundle
+
+# Install the exact dependencies recorded in the repository lockfile.
+COPY Gemfile Gemfile.lock ./
+RUN gem install bundler -v 2.5.22 --no-document && \
+    bundle install && \
+    bundle exec jekyll --version
+
 # Set permissions for the working directory
 RUN chown -R vscode:vscode /usr/src/app
 
 # Switch to the non-root user
 USER vscode
 
-# Copy Gemfile into the container (necessary for `bundle install`)
-COPY Gemfile ./
-
-
-
-# Install bundler and dependencies
-RUN gem install connection_pool:2.5.0
-RUN gem install bundler:2.3.26
-RUN bundle install
-
 # Command to serve the Jekyll site
-CMD ["jekyll", "serve", "-H", "0.0.0.0", "-w", "--config", "_config.yml,_config_docker.yml"]
+CMD ["bundle", "exec", "jekyll", "serve", "-H", "0.0.0.0", "-w", "--config", "_config.yml,_config_docker.yml"]

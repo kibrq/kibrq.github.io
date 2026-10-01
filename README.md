@@ -66,8 +66,7 @@ Working from a different OS, or just want to avoid installing dependencies? You 
 You can build and execute the container by running the following command in the repository:
 
 ```bash
-chmod -R 777 .
-docker compose up
+docker compose up --build jekyll-site
 ```
 
 You should now be able to access the website from `localhost:4000`.
